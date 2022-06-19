@@ -72,7 +72,7 @@ st.write("""
 st.write("""
 * (5110, 12)
 """)
-""")
+
 st.write("""
 RangeIndex: 5110 entries, 0 to 5109
 Data columns (total 12 columns):
