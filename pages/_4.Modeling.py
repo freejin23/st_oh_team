@@ -172,3 +172,20 @@ st.write("""
 image = Image.open('confusion_matrix.jpg')
 
 st.image(image, caption='confusion_matrix')
+
+st.write("""
+#### 4. final
+""")
+body1 = """
+
+[[1319  139]
+ [  37   38]]
+정확도 : 0.89
+오분류율 : 0.11
+AUC : 0.71
+정밀도 : 0.21
+재현율 : 0.51
+F1 Score : 0.3
+
+"""
+st.code(body1, language="python")
