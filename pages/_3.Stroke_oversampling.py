@@ -40,7 +40,7 @@ from sklearn.metrics import roc_auc_score
 from sklearn.model_selection import StratifiedKFold
 from sklearn.utils import shuffle
 
-
+import imblearn.over_sampling as osam 
 
 st.set_page_config(
     page_title="Likelion AI School Oh Team Miniproject",
@@ -112,7 +112,6 @@ y = stroke.iloc[:, -1]
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, stratify=y, random_state=25)
 
-import imblearn.over_sampling as osam 
 ros = osam.RandomOverSampler(random_state=25)
 X_train, y_train = ros.fit_resample(X_train, y_train)
 
