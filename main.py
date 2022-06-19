@@ -74,7 +74,6 @@ st.write("""
 """)
 """)
 st.write("""
-<class 'pandas.core.frame.DataFrame'>
 RangeIndex: 5110 entries, 0 to 5109
 Data columns (total 12 columns):
  #   Column             Non-Null Count  Dtype  
