@@ -67,19 +67,17 @@ if st.checkbox('Show raw data'):
 
     
 st.write("""
-#### 1. 데이터 크기
+* 1. 데이터 크기
 """)
 st.write("""
-#### (5110, 12)
+* (5110, 12)
 """)
 
 
-st.frame.DataFrame(stroke.info())
-
-
+st.DataFrame(pd.DataFrame(stroke.info()))
 
 st.write("""
-#### 1. 연속형 변수
+#### 2. 연속형 변수
 """)
 def num_desc(data):
     df = data.describe().T
