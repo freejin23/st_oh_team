@@ -103,3 +103,23 @@ fig, ax = plt.subplots()
 sns.countplot(data=stroke, x="stroke", ax=ax)
 st.write(fig)
 
+st.write("""
+#### 2. Stroke Oversampling
+""")
+
+X = stroke.iloc[:, :-1]
+y = stroke.iloc[:, -1]
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, stratify=y, random_state=25)
+
+import imblearn.over_sampling as osam 
+ros = osam.RandomOverSampler(random_state=25)
+X_train, y_train = ros.fit_resample(X_train, y_train)
+
+target = y_train.value_counts()
+
+
+fig, ax = plt.subplots()
+sns.barplot(x=target.index, y=target, ax=ax)
+st.write(fig)
+
