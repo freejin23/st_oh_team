@@ -52,8 +52,13 @@ st.markdown("# Stroke Prediction Dataset (kaggle) 🧠")
 st.sidebar.markdown("# Stroke Missing Values🧠")
 
 st.write("""
-#### 결측치에 대해 알아보자.
+#### 데이터 전처리 과정.
 """)
+
+st.write("""
+#### 1. 결측치 확인
+""")
+
 st.write("""
 ##### Stroke Dataset Missing values Heatmap .
 """)
@@ -68,9 +73,6 @@ plt.figure(figsize=(12, 6))
 sns.heatmap(stroke.isnull(), yticklabels = False, ax=ax)
 st.write(fig)
 
-st.write("""
-#### 1. 결측치 대체
-""")
 st.write("""
 * bmi는 평균, 중위수, 최빈값이 비슷하므로 평균 대체
 """)
