@@ -61,7 +61,7 @@ DATA_URL = ('https://s3-us-west-2.amazonaws.com/'
 
 @st.cache
 def load_data(nrows):
-    data = pd.read_csv("/content/stroke.csv")
+    data = pd.read_csv("content/stroke.csv")
     st.write("st.dataframe api")
     df = data
     return  st.dataframe(df.style.highlight_max(axis=0))
