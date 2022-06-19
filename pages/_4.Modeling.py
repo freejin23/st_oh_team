@@ -42,6 +42,7 @@ from sklearn.utils import shuffle
 
 import imblearn.over_sampling as osam 
 
+from PIL import Image
 
 st.set_page_config(
     page_title="Likelion AI School Oh Team Miniproject",
@@ -166,8 +167,6 @@ st.code(body1, language="python")
 st.write("""
 #### 3. confusion_matrix
 """)
-
-from PIL import Image
 
 image = Image.open('confusion_matrix.jpg')
 
