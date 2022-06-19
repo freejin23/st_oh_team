@@ -61,8 +61,8 @@ DATA_URL = ('https://s3-us-west-2.amazonaws.com/'
 
 @st.cache
 def load_data(nrows):
-    stroke = pd.read_csv("/content/stroke.csv")
-    data = pd.read_csv(DATA_URL, nrows=nrows)
+    data = pd.read_csv("/content/stroke.csv")
+#     data = pd.read_csv(DATA_URL, nrows=nrows)
     lowercase = lambda x: str(x).lower()
     data.rename(lowercase, axis='columns', inplace=True)
 #     data[id] = pd.to_datetime(data[DATE_COLUMN])
