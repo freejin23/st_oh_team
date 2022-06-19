@@ -76,4 +76,4 @@ st.write("""
 """)
 
 bmi_group = stroke.groupby(["stroke"])[["bmi"]].mean()
-st.Dataframe(bmi_group)
+st.dataframe(bmi_group)
