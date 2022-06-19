@@ -67,13 +67,13 @@ if st.checkbox('Show raw data'):
 
     
 st.write("""
-### 1. 데이터 크기
+#### 1. 데이터 크기
 """)
 st.write("""
 * (5110, 12)
 """)
 st.write("""
-### 2. 데이터 정보
+#### 2. 데이터 정보
 """)
 body = """
 RangeIndex: 5110 entries, 0 to 5109
@@ -98,10 +98,42 @@ memory usage: 479.2+ KB
 st.code(body, language="python")
 
 st.write("""
-#### 2. 연속형 변수
+#### 3. 연속형 변수
 """)
 
+body1 = """
+"age", "bmi", "avg_glucose_level"
+"""
+st.code(body1, language="python")
 
+sample1 = stroke[["age", "bmi", "avg_glucose_level"]]
+
+def num_desc(data):
+    df = data.describe().T
+    
+    df1 = data.isnull().sum()
+    df1.name = "missing"
+    
+    df2 = data.skew()
+    df2.name = "skewness"
+    
+    df3 = data.kurt()
+    df3.name = "kurtosis"
+
+    df4 = data.median()
+    df4.name = "median"
+    
+    df = pd.concat([df, df1, df2, df3, df4], axis=1)
+    df["total"] = df["count"] + df["missing"]
+    
+    order = ["total", "count", "missing", "mean", "median", "std", "skewness", "kurtosis", "min", "max", "25%", "75%"]
+        
+    num_df = df[order]
+    num_df = num_df.round(2)
+    
+    return num_df
+
+st.dataframe(num_desc(stroke))
 
 # st.subheader('Number of pickups by hour')
 # hist_values = np.histogram(data[DATE_COLUMN].dt.hour, bins=24, range=(0,24))[0]
