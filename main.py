@@ -72,7 +72,9 @@ st.write("""
 st.write("""
 * (5110, 12)
 """)
-
+st.write("""
+### 2. 데이터 정보
+""")
 body = """
 RangeIndex: 5110 entries, 0 to 5109
 Data columns (total 12 columns):
