@@ -62,5 +62,5 @@ st.write("""
 #### "bmi", "hypertension"
 """)
 fig, ax = plt.subplots()
-sns.histplot(data=stroke, x="bmi", hue=c"hypertension", kde=True)
+sns.histplot(data=stroke, x="bmi", hue="hypertension", kde=True, ax=ax)
 st.write(fig)
