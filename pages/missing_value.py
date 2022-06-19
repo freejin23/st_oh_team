@@ -72,8 +72,17 @@ st.write("""
 #### 1. 결측치 대체
 """)
 st.write("""
-#### bmi는 평균, 중위수, 최빈값이 비슷하므로 평균 대체
+* bmi는 평균, 중위수, 최빈값이 비슷하므로 평균 대체
 """)
 
 bmi_group = stroke.groupby(["stroke"])[["bmi"]].mean()
 st.dataframe(bmi_group)
+
+
+st.write("""
+#### 2. 중복값 확인
+""")
+st.write("""
+* 중복값이 존재하지 않는다.
+""")
+
