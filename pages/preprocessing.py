@@ -100,9 +100,29 @@ def outlier_df(data, col):
     Q3 = data[col].quantile(0.75)
     IQR = Q3 - Q1
     
-    outlier = data[(Q1 - 1.5 * IQR > data[col]) | (data[col] > Q3 + 1.5 * IQR)]
-    
-    print(f"하한값 : {Q1 - 1.5 * IQR},  상한값 : {Q3 + 1.5 * IQR}")
+    outlier = data[(Q1 - 1.5 * IQR > data[col]) | (data[col] > Q3 + 1.5 * IQR)] 
     return outlier
 
+body1 = """
+outlier_df(stroke, "avg_glucose_level")
+하한값 : 21.977500000000006,  상한값 : 169.35750000000002
+"""
+st.code(body1, language="python")
+
 st.dataframe(outlier_df(stroke, "avg_glucose_level"))
+
+body1 = """
+outlier_df(stroke, "bmi")
+하한값 : 10.300000000000006,  상한값 : 46.29999999999999
+"""
+st.code(body1, language="python")
+
+st.dataframe(outlier_df(stroke, "bmi"))
+
+body1 = """
+outlier_df(stroke, "bmi")
+하한값 : 10.300000000000006,  상한값 : 46.29999999999999
+"""
+st.code(body1, language="python")
+
+st.dataframe(outlier_df(stroke, "bmi"))
