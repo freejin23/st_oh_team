@@ -55,8 +55,8 @@ st.write("""
 #### 전체 변수 히스토그램.
 """)
 
-
-st.show(stroke.hist(figsize=(16, 10), bins=50))
+stroke.hist(stroke.hist(figsize=(16, 10), bins=50))
+st.pyplot()
 
 st.write("""
 #### 범주별 히스토그램.
