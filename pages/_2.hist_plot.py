@@ -64,3 +64,31 @@ st.write("""
 fig, ax = plt.subplots()
 sns.histplot(data=stroke, x="bmi", hue="hypertension", kde=True, ax=ax)
 st.write(fig)
+
+st.write("""
+#### "bmi", "hypertension"
+""")
+fig, ax = plt.subplots()
+sns.histplot(data=stroke, x="bmi", hue="hypertension", kde=True, ax=ax)
+st.write(fig)
+
+st.write("""
+#### "bmi", "heart_disease"
+""")
+fig, ax = plt.subplots()
+sns.histplot(data=stroke, x="bmi", hue="heart_disease", kde=True, ax=ax)
+st.write(fig)
+
+st.write("""
+#### "avg_glucose_level", "smoking_status"
+""")
+fig, ax = plt.subplots()
+sns.histplot(data=stroke, x="avg_glucose_level", hue="smoking_status", kde=True, ax=ax)
+st.write(fig)
+
+st.write("""
+#### "bmi", "smoking_status"
+""")
+fig, ax = plt.subplots()
+sns.histplot(data=stroke, x="bmi", hue="smoking_status", kde=True, ax=ax)
+st.write(fig)
