@@ -52,18 +52,18 @@ st.markdown("# Stroke Prediction Dataset (kaggle) 🧠")
 st.sidebar.markdown("# Stroke Histogram🧠")
 
 st.write("""
+#### 전체 변수 히스토그램.
+""")
+
+
+st.show(stroke.hist(figsize=(16, 10), bins=50))
+
+st.write("""
 #### 범주별 히스토그램.
 """)
 
 data = pd.read_csv("content/stroke.csv")
 stroke = data
-
-st.write("""
-#### "bmi", "hypertension"
-""")
-fig, ax = plt.subplots()
-sns.histplot(data=stroke, x="bmi", hue="hypertension", kde=True, ax=ax)
-st.write(fig)
 
 st.write("""
 #### "bmi", "hypertension"
