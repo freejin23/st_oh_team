@@ -62,6 +62,6 @@ stroke.isnull().sum()
 
 fig, ax = plt.subplots()
 plt.figure(figsize=(12, 6))
-sns.heatmap(stroke.isnull(), yticklabels = False)
+sns.heatmap(stroke.isnull(), yticklabels = False, ax=ax)
 st.write(fig)
 
