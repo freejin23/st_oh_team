@@ -137,3 +137,10 @@ plt.figure(figsize=(12, 6))
 sns.boxplot(data= stroke[num_cols], ax=ax)
 st.write(fig)
 
+st.write("""
+* bmi 이상치를 각 상한값과 하한값으로 대체
+""")
+st.write("""
+* 혈당 포도당 수치가 공복, 식전, 식후 중 어느 것을 기준으로 할지 혼란.
+* 200이 넘는 값을 상한값으로 대체한다.
+""")
