@@ -80,6 +80,9 @@ st.write("""
 bmi_group = stroke.groupby(["stroke"])[["bmi"]].mean()
 st.dataframe(bmi_group)
 
+stroke.loc[(stroke["stroke"] == 0) & (stroke["bmi"].isnull()), "bmi"] = bmi_group.loc[0, "bmi"]
+stroke.loc[(stroke["stroke"] == 1) & (stroke["bmi"].isnull()), "bmi"] = bmi_group.loc[1, "bmi"]
+
 
 st.write("""
 #### 2. 중복값 확인
@@ -140,11 +143,17 @@ st.write(fig)
 st.write("""
 * bmi 이상치를 각 상한값과 하한값으로 대체
 """)
+
+stroke.loc[stroke["bmi"] > 46.29999999999999, "bmi"] = 46.29999999999999
+stroke.loc[stroke["bmi"] < 10.300000000000006, "bmi"] = 10.300000000000006
+
 st.write("""
 * 혈당 포도당 수치가 공복, 식전, 식후 중 어느 것을 기준으로 할지 혼란.
 * 200이 넘는 값을 상한값으로 대체한다.
 """)
 
+stroke.loc[stroke["avg_glucose_level"] > 200, "avg_glucose_level"] = 169
+stroke.loc[stroke["avg_glucose_level"] < 21, "avg_glucose_level"] = 21
 
 st.write("""
 #### 4. 불필요한 id 컬럼 삭제
