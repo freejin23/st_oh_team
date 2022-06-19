@@ -122,3 +122,7 @@ fig, ax = plt.subplots()
 sns.barplot(x=target.index, y=target, ax=ax)
 st.write(fig)
 
+st.write("""
+* 오버 샘플링으로 과적합이 발생하는 것 같다.
+* 오버 샘플링 후 target == 1인 데이터를 절반 삭제한다.
+""")
