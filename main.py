@@ -66,7 +66,7 @@ if st.checkbox('Show raw data'):
     data_load_state.text("Done!")
 
 st.dataframe(stroke.shape)
-st.dataframe(stroke.info())
+st.table(stroke.info())
 
 
 
