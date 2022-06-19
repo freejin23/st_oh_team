@@ -56,7 +56,7 @@ st.write("""
 """)
 
 st.write("""
-#### 1. Stroke Countplot
+#### 1. model
 """)
 
 data = pd.read_csv("content/stroke.csv")
@@ -131,25 +131,42 @@ vote_model = VotingClassifier(estimators=[("LGBM", model1), ("tree", model2), ("
 
 vote_model.fit(X_train, y_train)
 predict = vote_model.predict(X_test)
-"""
-st.code(body1, language="python")
-
-
-X_train = df.drop(["stroke"], axis=1)
-y_train = df["stroke"]
-
-model1 = LGBMClassifier(max_depth=3, n_estimators=123,random_state=25)
-model2 = DecisionTreeClassifier(max_depth=3, max_leaf_nodes=3, random_state=25)
-model3 = GradientBoostingClassifier(max_depth=3, n_estimators=131, random_state=25)
-
-vote_model = VotingClassifier(estimators=[("LGBM", model1), ("tree", model2), ("Gradient", model3)], voting="hard")
-
-vote_model.fit(X_train, y_train)
-predict = vote_model.predict(X_test)
 
 print(vote_model.score(X_train, y_train))
 print(vote_model.score(X_test, y_test))
 
+0.8973153047227121
+0.8851924331376386
+
+"""
+st.code(body1, language="python")
+
+
+
+st.write("""
+#### 2. report
+""")
+body1 = """
 from sklearn.metrics import classification_report
 print(classification_report(y_test, predict))
 
+              precision    recall  f1-score   support
+
+           0       0.97      0.90      0.94      1458
+           1       0.21      0.51      0.30        75
+
+    accuracy                           0.89      1533
+   macro avg       0.59      0.71      0.62      1533
+weighted avg       0.94      0.89      0.91      1533
+
+"""
+st.code(body1, language="python")
+
+st.write("""
+#### 3. confusion_matrix
+""")
+
+from PIL import Image
+image = Image.open('content/confusion_matrix.png')
+
+st.image(image, caption='confusion_matrix')
