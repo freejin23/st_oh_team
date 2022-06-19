@@ -60,9 +60,44 @@ data = pd.read_csv("content/stroke.csv")
 if st.checkbox('Show raw data'):
     data_load_state = st.text('Loading data...')
     st.subheader('Stroke Prediction Dataset (kaggle)')
-    df = data
-    st.dataframe(df.style.highlight_max(axis=0))
+    stroke = data
+    st.dataframe(stroke.style.highlight_max(axis=0))
     data_load_state.text("Done!")
+    
+stroke.shape
+stroke.info()
+
+
+st.write("""
+#### 1. 연속형 변수
+""")
+def num_desc(data):
+    df = data.describe().T
+    
+    df1 = data.isnull().sum()
+    df1.name = "missing"
+    
+    df2 = data.skew()
+    df2.name = "skewness"
+    
+    df3 = data.kurt()
+    df3.name = "kurtosis"
+
+    df4 = data.median()
+    df4.name = "median"
+    
+    df = pd.concat([df, df1, df2, df3, df4], axis=1)
+    df["total"] = df["count"] + df["missing"]
+    
+    order = ["total", "count", "missing", "mean", "median", "std", "skewness", "kurtosis", "min", "max", "25%", "75%"]
+        
+    num_df = df[order]
+    num_df = num_df.round(2)
+    
+    return num_df
+
+st.dataframe(num_desc(sample1))
+
 
 # st.subheader('Number of pickups by hour')
 # hist_values = np.histogram(data[DATE_COLUMN].dt.hour, bins=24, range=(0,24))[0]
