@@ -149,11 +149,13 @@ st.write("""
 st.write("""
 #### 4. 불필요한 id 컬럼 삭제
 """)
-
+stroke = stroke.drop(["id"], axis=1)
 
 st.write("""
 #### 5. gender 컬럼에서 불필요한 Other 성별 삭제
 """)
+stroke[stroke["gender"] == "Other"]
+stroke = stroke.drop(3116, axis=0)
 
 st.write("""
 #### 6. avg_glucose_level log 변환
@@ -175,3 +177,27 @@ st.write("""
 np.log1p(stroke["avg_glucose_level"]).hist(figsize=(16, 10), bins=50)
 st.set_option('deprecation.showPyplotGlobalUse', False)
 st.pyplot()
+
+stroke["avg_glucose_level"] = np.log1p(stroke["avg_glucose_level"])
+
+st.write("""
+#### 7. 연속형 변수 StandardScaler
+""")
+
+scale = StandardScaler()
+stroke[num_cols] = scale.fit_transform(stroke[num_cols])
+
+st.write("""
+#### 8. 범주형 변수 One-hot Endoding
+""")
+
+stroke = stroke.drop("stroke", axis=1)
+stroke = pd.get_dummies(stroke)
+
+stroke = pd.concat([stroke, target], axis=1)
+
+st.write("""
+#### 전처리 후 데이터
+""")
+
+st.dataframe(stroke)
