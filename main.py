@@ -49,7 +49,7 @@ st.set_page_config(
 )
 
 st.markdown("# Stroke Prediction Dataset (kaggle) 🧠")
-st.sidebar.markdown("# Stroke 🧠")
+st.sidebar.markdown("# Stroke Data Info🧠")
 
 st.write("""
 #### Oh Team -박지현, 박준혁, 선은지, 성찬영, 이주승
