@@ -68,3 +68,12 @@ plt.figure(figsize=(12, 6))
 sns.heatmap(stroke.isnull(), yticklabels = False, ax=ax)
 st.write(fig)
 
+st.write("""
+#### 1. 결측치 대체
+""")
+st.write("""
+#### bmi는 평균, 중위수, 최빈값이 비슷하므로 평균 대체
+""")
+
+bmi_group = stroke.groupby(["stroke"])[["bmi"]].mean()
+st.Dataframe(bmi_group)
