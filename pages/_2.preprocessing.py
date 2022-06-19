@@ -152,7 +152,7 @@ st.write("""
 
 
 st.write("""
-#### 5. 불필요한 Other 성별 삭제
+#### 5. gender 컬럼에서 불필요한 Other 성별 삭제
 """)
 
 st.write("""
@@ -162,7 +162,16 @@ target = stroke["stroke"]
 num_cols = ["age", "avg_glucose_level", "bmi"]
 cat_cols = ["gender", "hypertension", "heart_disease", "ever_married", "work_type", "Residence_type", "smoking_status"]
 
+st.write("""
+* avg_glucose_level log 변환 전
+""")
 stroke["avg_glucose_level"].hist(figsize=(16, 10), bins=50)
 st.set_option('deprecation.showPyplotGlobalUse', False)
 st.pyplot()
 
+st.write("""
+* avg_glucose_level log 변환 후
+""")
+np.log1p(stroke["avg_glucose_level"]).hist(figsize=(16, 10), bins=50)
+st.set_option('deprecation.showPyplotGlobalUse', False)
+st.pyplot()
