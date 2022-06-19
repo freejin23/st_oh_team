@@ -62,11 +62,9 @@ DATA_URL = ('https://s3-us-west-2.amazonaws.com/'
 @st.cache
 def load_data(nrows):
     data = pd.read_csv("/content/stroke.csv")
-#     data = pd.read_csv(DATA_URL, nrows=nrows)
-    lowercase = lambda x: str(x).lower()
-    data.rename(lowercase, axis='columns', inplace=True)
-#     data[id] = pd.to_datetime(data[DATE_COLUMN])
-    return data
+    st.write("st.dataframe api")
+    df = data
+    return  st.dataframe(df.style.highlight_max(axis=0))
 
 data_load_state = st.text('Loading data...')
 data = load_data(1000)
