@@ -67,14 +67,33 @@ if st.checkbox('Show raw data'):
 
     
 st.write("""
-* 1. 데이터 크기
+### 1. 데이터 크기
 """)
 st.write("""
 * (5110, 12)
 """)
-
-
-st.DataFrame(pd.DataFrame(stroke.info()))
+""")
+st.write("""
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 5110 entries, 0 to 5109
+Data columns (total 12 columns):
+ #   Column             Non-Null Count  Dtype  
+---  ------             --------------  -----  
+ 0   id                 5110 non-null   int64  
+ 1   gender             5110 non-null   object 
+ 2   age                5110 non-null   float64
+ 3   hypertension       5110 non-null   int64  
+ 4   heart_disease      5110 non-null   int64  
+ 5   ever_married       5110 non-null   object 
+ 6   work_type          5110 non-null   object 
+ 7   Residence_type     5110 non-null   object 
+ 8   avg_glucose_level  5110 non-null   float64
+ 9   bmi                4909 non-null   float64
+ 10  smoking_status     5110 non-null   object 
+ 11  stroke             5110 non-null   int64  
+dtypes: float64(3), int64(4), object(5)
+memory usage: 479.2+ KB
+""")
 
 st.write("""
 #### 2. 연속형 변수
