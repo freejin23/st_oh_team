@@ -201,7 +201,7 @@ scale = StandardScaler()
 stroke[num_cols] = scale.fit_transform(stroke[num_cols])
 
 st.write("""
-#### 6-3. 범주형 변수 One-hot Endoding
+#### 6-3. 범주형 변수 One-hot Encoding
 """)
 
 stroke = stroke.drop("stroke", axis=1)
