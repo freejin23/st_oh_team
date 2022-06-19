@@ -126,3 +126,13 @@ outlier_df(stroke, "bmi")
 st.code(body1, language="python")
 
 st.dataframe(outlier_df(stroke, "bmi"))
+
+st.write("""
+##### boxplot .
+""")
+num_cols = ["age", "avg_glucose_level", "bmi"]
+
+fig, ax = plt.subplots()
+plt.figure(figsize=(12, 6))
+stroke[num_cols].boxplot(figsize=(12, 8))
+st.write(fig)
