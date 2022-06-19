@@ -54,6 +54,9 @@ st.sidebar.markdown("# Stroke Missing Values🧠")
 st.write("""
 #### 결측치에 대해 알아보자.
 """)
+st.write("""
+##### Stroke Dataset Missing values Heatmap .
+""")
 
 data = pd.read_csv("content/stroke.csv")
 stroke = data
