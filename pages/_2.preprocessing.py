@@ -49,7 +49,7 @@ st.set_page_config(
 )
 
 st.markdown("# Stroke Prediction Dataset (kaggle) 🧠")
-st.sidebar.markdown("# Stroke Missing Values🧠")
+st.sidebar.markdown("# Stroke Preprocessing🧠")
 
 st.write("""
 #### 데이터 전처리 과정.
