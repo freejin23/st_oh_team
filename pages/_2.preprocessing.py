@@ -144,3 +144,25 @@ st.write("""
 * 혈당 포도당 수치가 공복, 식전, 식후 중 어느 것을 기준으로 할지 혼란.
 * 200이 넘는 값을 상한값으로 대체한다.
 """)
+
+
+st.write("""
+#### 4. 불필요한 id 컬럼 삭제
+""")
+
+
+st.write("""
+#### 5. 불필요한 Other 성별 삭제
+""")
+
+st.write("""
+#### 6. avg_glucose_level log 변환
+""")
+target = stroke["stroke"]
+num_cols = ["age", "avg_glucose_level", "bmi"]
+cat_cols = ["gender", "hypertension", "heart_disease", "ever_married", "work_type", "Residence_type", "smoking_status"]
+
+stroke["avg_glucose_level"].hist(figsize=(16, 10), bins=50)
+st.set_option('deprecation.showPyplotGlobalUse', False)
+st.pyplot()
+
