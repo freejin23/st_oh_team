@@ -59,12 +59,12 @@ data = pd.read_csv("content/stroke.csv")
 
 data_load_state = st.text('Loading data...')
 
- if st.checkbox('Show raw data'):
-     st.subheader('Raw data')
-     st.write(data)
-     st.write("st.dataframe api")
-     df = data
-     st.dataframe(df.style.highlight_max(axis=0))
+if st.checkbox('Show raw data'):
+    st.subheader('Raw data')
+    st.write(data)
+    st.write("st.dataframe api")
+    df = data
+    st.dataframe(df.style.highlight_max(axis=0))
 
 # st.subheader('Number of pickups by hour')
 # hist_values = np.histogram(data[DATE_COLUMN].dt.hour, bins=24, range=(0,24))[0]
