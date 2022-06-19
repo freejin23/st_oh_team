@@ -55,7 +55,7 @@ data = pd.read_csv("content/stroke.csv")
 stroke = data
 
 st.write("""
-#### 전체 변수 히스토그램.
+#### 1. 전체 변수 히스토그램.
 """)
 
 stroke.hist(figsize=(16, 10), bins=50)
@@ -63,7 +63,18 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 st.pyplot()
 
 st.write("""
-#### 범주별 히스토그램.
+#### 2. 수치형 변수간의 상관계수.
+""")
+
+mask = np.triu(np.ones_like(stroke.corr()))
+
+fig, ax = plt.subplots()
+sns.heatmap(stroke.corr(), cmap="coolwarm", vmin=-1, vmax=1, mask=mask, annot=True, fmt="1.1f", ax=ax)
+st.write(fig)
+
+
+st.write("""
+#### 3. 범주별 히스토그램.
 """)
 
 st.write("""
