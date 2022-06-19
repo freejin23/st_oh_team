@@ -11,4 +11,4 @@ sklearn
 lightgbm
 xgboost
 imblearn
-Pillow
+pillow
