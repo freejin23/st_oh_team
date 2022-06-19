@@ -56,14 +56,13 @@ st.write("""
 """)
 
 st.write("""
-#### 1. 결측치 확인
+#### 1. Stroke Countplot
 """)
 
 data = pd.read_csv("content/stroke.csv")
 stroke = data
 
 bmi_group = stroke.groupby(["stroke"])[["bmi"]].mean()
-bmi_group
 
 stroke.loc[(stroke["stroke"] == 0) & (stroke["bmi"].isnull()), "bmi"] = bmi_group.loc[0, "bmi"]
 stroke.loc[(stroke["stroke"] == 1) & (stroke["bmi"].isnull()), "bmi"] = bmi_group.loc[1, "bmi"]
@@ -81,7 +80,6 @@ stroke.loc[stroke["avg_glucose_level"] < 21, "avg_glucose_level"] = 21
 
 stroke = stroke.drop(["id"], axis=1)
 
-stroke[stroke["gender"] == "Other"]
 stroke = stroke.drop(3116, axis=0)
 
 target = stroke["stroke"]
@@ -102,6 +100,6 @@ stroke = pd.concat([stroke, target], axis=1)
 print(stroke["stroke"].value_counts())
 
 fig, ax = plt.subplots()
-sns.countplot(data=stroke["stroke"], ax=ax)
+sns.countplot(data=stroke, x="stroke", ax=ax)
 st.write(fig)
 
