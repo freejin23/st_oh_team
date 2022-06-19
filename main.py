@@ -135,6 +135,52 @@ def num_desc(data):
 
 st.dataframe(num_desc(sample1))
 
+st.write("""
+#### 4. 범주형 변수
+""")
+
+def cat_df(data, col):
+    cat_df = data[col].value_counts(dropna=False).to_frame().sort_index(ascending=True).rename(columns={col:"count"}).reset_index()
+    cat_df = cat_df.rename(columns={"index":col})
+
+    return cat_df
+
+body2 = """
+"gender"
+"""
+st.code(body2, language="python")
+st.dataframe(cat_df(stroke, "gender"))
+
+body2 = """
+"ever_married"
+"""
+st.code(body2, language="python")
+st.dataframe(cat_df(stroke, "ever_married"))
+
+body2 = """
+"work_type"
+"""
+st.code(body2, language="python")
+st.dataframe(cat_df(stroke, "work_type"))
+
+body2 = """
+"Residence_type"
+"""
+st.code(body2, language="python")
+st.dataframe(cat_df(stroke, "Residence_type"))
+
+body2 = """
+"hypertension"
+"""
+st.code(body2, language="python")
+st.dataframe(cat_df(stroke, "hypertension"))
+
+body2 = """
+"heart_disease"
+"""
+st.code(body2, language="python")
+st.dataframe(cat_df(stroke, "heart_disease"))
+
 # st.subheader('Number of pickups by hour')
 # hist_values = np.histogram(data[DATE_COLUMN].dt.hour, bins=24, range=(0,24))[0]
 # st.bar_chart(hist_values)
