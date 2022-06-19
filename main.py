@@ -133,7 +133,7 @@ def num_desc(data):
     
     return num_df
 
-st.dataframe(num_desc(stroke))
+st.dataframe(num_desc(sample1))
 
 # st.subheader('Number of pickups by hour')
 # hist_values = np.histogram(data[DATE_COLUMN].dt.hour, bins=24, range=(0,24))[0]
