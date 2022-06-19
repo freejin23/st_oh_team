@@ -42,7 +42,6 @@ from sklearn.utils import shuffle
 
 import imblearn.over_sampling as osam 
 
-from PIL import Image
 
 st.set_page_config(
     page_title="Likelion AI School Oh Team Miniproject",
