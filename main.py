@@ -63,9 +63,10 @@ if st.checkbox('Show raw data'):
     stroke = data
     st.dataframe(stroke.style.highlight_max(axis=0))
     data_load_state.text("Done!")
-    
-stroke.shape
-stroke.info()
+
+st.dataframe(stroke.shape)
+st.dataframe(stroke.info())
+
 
 
 st.write("""
