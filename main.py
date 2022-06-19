@@ -52,8 +52,8 @@ st.markdown("# Stroke Prediction Dataset (kaggle) 🧠")
 st.sidebar.markdown("# Stroke 🧠")
 
 st.write("""
-### Oh Team -
-#### 박지현, 박준혁, 선은지, 성찬영, 이주승
+## Oh Team -
+### 박지현, 박준혁, 선은지, 성찬영, 이주승
 """)
 
 data = pd.read_csv("content/stroke.csv")
