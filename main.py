@@ -61,8 +61,6 @@ data_load_state = st.text('Loading data...')
 
 if st.checkbox('Show raw data'):
     st.subheader('Raw data')
-    st.write(data)
-    st.write("st.dataframe api")
     df = data
     st.dataframe(df.style.highlight_max(axis=0))
 
