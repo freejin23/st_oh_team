@@ -56,12 +56,13 @@ st.write("""
 """)
 
 data = pd.read_csv("content/stroke.csv")
+stroke = data
 
 if st.checkbox('Show raw data'):
     data_load_state = st.text('Loading data...')
     st.subheader('Stroke Prediction Dataset (kaggle)')
-    stroke = data
-    st.dataframe(stroke.style.highlight_max(axis=0))
+    df = data
+    st.dataframe(df.style.highlight_max(axis=0))
     data_load_state.text("Done!")
 
 st.dataframe(stroke.shape)
