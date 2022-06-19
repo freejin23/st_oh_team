@@ -167,7 +167,11 @@ stroke[stroke["gender"] == "Other"]
 stroke = stroke.drop(3116, axis=0)
 
 st.write("""
-#### 6. avg_glucose_level log 변환
+#### 6. 스케일링
+""")
+
+st.write("""
+#### 6-1. avg_glucose_level log 변환
 """)
 target = stroke["stroke"]
 num_cols = ["age", "avg_glucose_level", "bmi"]
@@ -190,14 +194,14 @@ st.pyplot()
 stroke["avg_glucose_level"] = np.log1p(stroke["avg_glucose_level"])
 
 st.write("""
-#### 7. 연속형 변수 StandardScaler
+#### 6-2. 연속형 변수 StandardScaler
 """)
 
 scale = StandardScaler()
 stroke[num_cols] = scale.fit_transform(stroke[num_cols])
 
 st.write("""
-#### 8. 범주형 변수 One-hot Endoding
+#### 6-3. 범주형 변수 One-hot Endoding
 """)
 
 stroke = stroke.drop("stroke", axis=1)
