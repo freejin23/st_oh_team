@@ -167,9 +167,11 @@ st.write("""
 #### 3. confusion_matrix
 """)
 
-uploaded_file = st.file_uploader("confusion_matrix", type="jpg")
-image = Image.open(uploaded_file)
-st.image(image, caption='Uploaded Image.', use_column_width=True)
+from PIL import Image
+
+image = Image.open('confusion_matrix.jpg')
+
+st.image(image, caption='confusion_matrix')
 
 
 st.write("""
