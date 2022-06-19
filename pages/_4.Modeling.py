@@ -167,6 +167,6 @@ st.write("""
 """)
 
 from PIL import Image
-image = Image.open('confusion_matrix.png')
+image = Image.open('confusion_matrix.jpg')
 
 st.image(image, caption='confusion_matrix')
