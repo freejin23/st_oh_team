@@ -134,6 +134,6 @@ num_cols = ["age", "avg_glucose_level", "bmi"]
 
 fig, ax = plt.subplots()
 plt.figure(figsize=(12, 6))
-sns.boxplot(stroke[num_cols], yticklabels = False, ax=ax)
+sns.boxplot(data= stroke[num_cols], ax=ax)
 st.write(fig)
 
