@@ -167,11 +167,11 @@ st.write("""
 #### 3. confusion_matrix
 """)
 
-from PIL import Image
+# from PIL import Image
 
-image = Image.open('confusion_matrix.jpg')
+# image = Image.open('confusion_matrix.jpg')
 
-st.image(image, caption='confusion_matrix')
+# st.image(image, caption='confusion_matrix')
 
 
 st.write("""
