@@ -62,10 +62,14 @@ st.write("""
 data = pd.read_csv("content/stroke.csv")
 stroke = data
 
-stroke.isnull().sum()
+bmi_group = stroke.groupby(["stroke"])[["bmi"]].mean()
+bmi_group
 
 stroke.loc[(stroke["stroke"] == 0) & (stroke["bmi"].isnull()), "bmi"] = bmi_group.loc[0, "bmi"]
 stroke.loc[(stroke["stroke"] == 1) & (stroke["bmi"].isnull()), "bmi"] = bmi_group.loc[1, "bmi"]
+
+num_cols = ["age", "avg_glucose_level", "bmi"]
+cat_cols = stroke.drop(num_cols, axis=1)
 
 num_cols = ["age", "avg_glucose_level", "bmi"]
 
