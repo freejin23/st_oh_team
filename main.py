@@ -52,7 +52,7 @@ st.markdown("# Stroke Prediction Dataset (kaggle) 🧠")
 st.sidebar.markdown("# Stroke 🧠")
 
 st.write("""
-### 뇌졸중
+### Oh Team
 """)
 
 data = pd.read_csv("content/stroke.csv")
