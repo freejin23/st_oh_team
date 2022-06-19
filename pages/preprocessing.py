@@ -132,6 +132,7 @@ st.write("""
 """)
 num_cols = ["age", "avg_glucose_level", "bmi"]
 
+fig, ax = plt.subplots()
+ax.boxplot(stroke[num_cols], bins=20)
 
-plt.figure(figsize=(12, 6))
-st.write(stroke[num_cols].boxplot(figsize=(12, 8)))
+st.pyplot(fig)
