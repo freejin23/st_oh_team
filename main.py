@@ -73,7 +73,7 @@ st.write("""
 * (5110, 12)
 """)
 
-st.write("""
+st.write(```python
 RangeIndex: 5110 entries, 0 to 5109
 Data columns (total 12 columns):
  #   Column             Non-Null Count  Dtype  
@@ -92,7 +92,7 @@ Data columns (total 12 columns):
  11  stroke             5110 non-null   int64  
 dtypes: float64(3), int64(4), object(5)
 memory usage: 479.2+ KB
-""")
+```)
 
 st.write("""
 #### 2. 연속형 변수
