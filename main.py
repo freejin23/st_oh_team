@@ -98,32 +98,7 @@ memory usage: 479.2+ KB
 st.write("""
 #### 2. 연속형 변수
 """)
-def num_desc(data):
-    df = data.describe().T
-    
-    df1 = data.isnull().sum()
-    df1.name = "missing"
-    
-    df2 = data.skew()
-    df2.name = "skewness"
-    
-    df3 = data.kurt()
-    df3.name = "kurtosis"
 
-    df4 = data.median()
-    df4.name = "median"
-    
-    df = pd.concat([df, df1, df2, df3, df4], axis=1)
-    df["total"] = df["count"] + df["missing"]
-    
-    order = ["total", "count", "missing", "mean", "median", "std", "skewness", "kurtosis", "min", "max", "25%", "75%"]
-        
-    num_df = df[order]
-    num_df = num_df.round(2)
-    
-    return num_df
-
-st.dataframe(num_desc(sample1))
 
 
 # st.subheader('Number of pickups by hour')
