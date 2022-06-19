@@ -65,8 +65,16 @@ if st.checkbox('Show raw data'):
     st.dataframe(df.style.highlight_max(axis=0))
     data_load_state.text("Done!")
 
-st.dataframe(stroke.shape)
-st.table(stroke.info())
+    
+st.write("""
+#### 1. 데이터 크기
+""")
+st.write("""
+#### (5110, 12)
+""")
+
+
+st.frame.DataFrame(stroke.info())
 
 
 
