@@ -63,5 +63,5 @@ st.write("""
 #### 1. 전체 변수 확인
 """)
 fig, ax = plt.subplots()
-sns.hist(data=stroke, bins=50, ax=ax)
+sns.histplot(data=stroke, bins=50, ax=ax)
 st.write(fig)
