@@ -98,6 +98,6 @@ stroke = pd.concat([stroke, target], axis=1)
 print(stroke["stroke"].value_counts())
 
 fig, ax = plt.subplots()
-sns.countplot(data=stroke, x="stroke", ax=ax)
+sns.countplot(data=stroke["stroke"], ax=ax)
 st.write(fig)
 
