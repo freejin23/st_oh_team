@@ -65,7 +65,28 @@ if st.checkbox('Show raw data'):
     st.dataframe(df.style.highlight_max(axis=0))
     data_load_state.text("Done!")
 
-    
+st.write("""
+#### Data Description
+""")
+
+body = """
+- `id` : 고유 식별자
+- `gender` : 환자의 성별
+- `age` : 환자의 연령
+- `hypertension` : 환자가 고혈압이 아닌 경우 0, 고혈압인 경우 1
+- `heart_parament` : 환자가 심장 질환이 없는 경우 0, 환자가 심장 질환이 있는 경우 1
+- `ever_married` : 결혼한 적이 있는가 "아니오" 또는 "예"
+- `work_type` : "Children", "Govt_jov", "Never_worked", "Private" 또는 "Self-employed"
+- `Residence_type` : "Rural" or "Urban”
+- `avg_glucose_level` : 혈중 평균 포도당 수준
+- `bmi` : 체질량지수
+- `smoking_status` : "formerly smoked", "never smoked", "smokes" or "Unknown"
+- `stroke` : 뇌졸중이 있는 경우 1, 뇌졸중이 아닌 경우 0
+- 참고 : smoking_status의 **Unknown**은 이 환자에 대한 정보를 사용할 수 없음을 의미한다.
+"""
+st.code(body, language="python")
+
+
 st.write("""
 #### 1. 데이터 크기
 """)
