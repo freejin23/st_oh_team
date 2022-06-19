@@ -86,3 +86,10 @@ st.write("""
 * 중복값이 존재하지 않는다.
 """)
 
+st.write("""
+#### 3. 이상치 확인
+""")
+st.write("""
+* "age", "avg_glucose_level", "bmi"
+""")
+
