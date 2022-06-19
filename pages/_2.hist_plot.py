@@ -51,6 +51,9 @@ st.set_page_config(
 st.markdown("# Stroke Prediction Dataset (kaggle) 🧠")
 st.sidebar.markdown("# Stroke Histogram🧠")
 
+data = pd.read_csv("content/stroke.csv")
+stroke = data
+
 st.write("""
 #### 전체 변수 히스토그램.
 """)
@@ -61,9 +64,6 @@ st.pyplot()
 st.write("""
 #### 범주별 히스토그램.
 """)
-
-data = pd.read_csv("content/stroke.csv")
-stroke = data
 
 st.write("""
 #### "bmi", "hypertension"
