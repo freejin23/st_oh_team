@@ -95,3 +95,14 @@ st.write("""
 * "age", "avg_glucose_level", "bmi"
 """)
 
+def outlier_df(data, col):
+    Q1 = data[col].quantile(0.25)
+    Q3 = data[col].quantile(0.75)
+    IQR = Q3 - Q1
+    
+    outlier = data[(Q1 - 1.5 * IQR > data[col]) | (data[col] > Q3 + 1.5 * IQR)]
+    
+    print(f"하한값 : {Q1 - 1.5 * IQR},  상한값 : {Q3 + 1.5 * IQR}")
+    return outlier
+
+st.dataframe(outlier_df(stroke, "avg_glucose_level"))
